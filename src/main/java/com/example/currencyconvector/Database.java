@@ -161,7 +161,6 @@ public class Database {
             ResultSet resultSet = statement.executeQuery();
             double value1= resultSet.getDouble("val1");
             double value2 = resultSet.getDouble("val2");
-            System.out.println("1$ = "+value1+" "+code1+"\n"+"1$ = "+value2+" "+code2);
             result[0] = (amount1/value1)* value2;
             result[1] = (amount2/value2)* value1;
         }catch (SQLException e) {

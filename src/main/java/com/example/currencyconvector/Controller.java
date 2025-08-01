@@ -7,10 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Controller {
-    double[] currencies = new double[2];
-    double[] result = new double[2];
-    String code1,code2;
-    String valueAmount1,valueAmount2;
+    private double[] currencies = new double[2];
+    private double[] result = new double[2];
+    private String code1,code2;
+    private String valueAmount1,valueAmount2;
 
     private Database database;
     @FXML
