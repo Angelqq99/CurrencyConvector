@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import  java.sql.*;
 import  java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class Database {
     private static final String DB_URL = "jdbc:sqlite:currency.db";
@@ -146,6 +147,29 @@ public class Database {
         }
 
         return currencies;
+    }
+
+    public double[] getExchange(String code1,String code2,double amount1,double amount2){
+        double[] result = new double[2];
+        String sql = "SELECT (SELECT value FROM currency WHERE currency_code = ?) as val1, " +
+                "(SELECT value FROM currency WHERE currency_code = ?) as val2";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)){
+            statement.setString(1,code1);
+            statement.setString(2,code2);
+
+            ResultSet resultSet = statement.executeQuery();
+            double value1= resultSet.getDouble("val1");
+            double value2 = resultSet.getDouble("val2");
+            System.out.println("1$ = "+value1+" "+code1+"\n"+"1$ = "+value2+" "+code2);
+            result[0] = (amount1/value1)* value2;
+            result[1] = (amount2/value2)* value1;
+        }catch (SQLException e) {
+            System.err.println("Ошибка обмена: " + e.getMessage());
+        }
+
+
+        return result;
     }
 
 }

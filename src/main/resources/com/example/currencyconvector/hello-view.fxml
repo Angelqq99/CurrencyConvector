@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-          prefHeight="400.0" prefWidth="600.0"  xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.example.currencyconvector.Controller">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.currencyconvector.Controller">
 
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,31 +19,29 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints />
     </rowConstraints>
 
-    <Label text="Конвертер валют" style="-fx-font-size: 20px; -fx-font-weight: bold;"
-           GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="0"
-           GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Конвертер валют" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
 
-    <Label text="Выберите валюту:" GridPane.columnIndex="0" GridPane.rowIndex="1"
-           GridPane.halignment="RIGHT" GridPane.valignment="CENTER"/>
 
-    <ComboBox fx:id="currencyComboBox" promptText="Выберите валюту"
-              GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="LEFT"
-              GridPane.valignment="CENTER" prefWidth="200.0"/>
+    <ComboBox fx:id="currencyComboBox1" prefWidth="200.0" promptText="Выберите валюту 1" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 
-    <Label text="Сумма:" GridPane.columnIndex="0" GridPane.rowIndex="2"
-           GridPane.halignment="RIGHT" GridPane.valignment="CENTER"/>
+    <Label fx:id="exchangeRateLabel" style="-fx-font-size: 14px;"
+           GridPane.columnIndex="1" GridPane.rowIndex="1"
+           GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
 
-    <TextField fx:id="amountTextField" promptText="Введите сумму"
-               GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="LEFT"
-               GridPane.valignment="CENTER" prefWidth="200.0"/>
+    <ComboBox fx:id="currencyComboBox2" prefWidth="200.0" promptText="Выберите валюту 2" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 
-    <Button fx:id="convertButton" text="Конвертировать"
-            GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER"
-            GridPane.valignment="CENTER" prefWidth="150.0"/>
+    <TextField fx:id="amountTextField1" prefWidth="200.0" promptText="Введите количество первой ¤" GridPane.halignment="LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
 
-    <Label fx:id="resultLabel" text="" style="-fx-font-size: 16px;"
-           GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="4"
-           GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+    <Label fx:id="calculateLabel" style="-fx-font-size: 14px;"
+           GridPane.columnIndex="1" GridPane.rowIndex="2"
+           GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+
+    <TextField fx:id="amountTextField2" prefWidth="200.0" promptText="Введите количество второй ¤" GridPane.halignment="LEFT" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+
+    <Button fx:id="convertButton" prefWidth="150.0" text="Конвертировать" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+
+    <Label fx:id="resultLabel" style="-fx-font-size: 16px;" text="" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
 </GridPane>
